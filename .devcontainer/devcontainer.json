@@ -1,0 +1,36 @@
+{
+  "name": "Phoenix Inertia React",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "forwardPorts": [
+    4000,
+    5432
+  ],
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "jakebecker.elixir-ls",
+        "phoenixframework.phoenix",
+        "bradlc.vscode-tailwindcss",
+        "florinpatrascu.vscode-elixir-snippets",
+        "dsznajder.es7-react-js-snippets",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "emmet.includeLanguages": {
+          "elixir": "html",
+          "phoenix-heex": "html",
+          "javascriptreact": "html"
+        },
+        "emmet.triggerExpansionOnTab": true,
+        "tailwindCSS.includeLanguages": {
+          "elixir": "html",
+          "phoenix-heex": "html"
+        },
+        "tailwindCSS.emmetCompletions": true
+      }
+    }
+  }
+}

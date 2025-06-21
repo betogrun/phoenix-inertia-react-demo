@@ -1,0 +1,32 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    environment:
+      - PORT=4000
+      - BINDING=0.0.0.0
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
+    ports:
+      - "4000:4000"
+    volumes:
+      - ../..:/workspaces:cached
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    expose:
+      - "5432"
+    volumes:
+      - "database:/var/lib/postgresql/data"
+
+volumes:
+  database:
